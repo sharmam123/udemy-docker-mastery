@@ -40,6 +40,7 @@ RUN apt-get update \
 	&& rm -rf /var/lib/apt/lists/*
 # optional commands to run at shell inside container at build time
 # this one adds package repo for nginx from nginx.org and installs it
+# && is used before every statement to make sure all the commands run in a single layer which will save memory and time 
 
 RUN ln -sf /dev/stdout /var/log/nginx/access.log \
 	&& ln -sf /dev/stderr /var/log/nginx/error.log
